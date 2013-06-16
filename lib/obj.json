@@ -1,0 +1,395 @@
+{
+  "selectors": [],
+  "rules": [
+    {
+      "value": "//",
+      "silent": true
+    },
+    {
+      "value": "// Accordion",
+      "silent": true
+    },
+    {
+      "value": "// --------------------------------------------------",
+      "silent": true
+    },
+    {
+      "value": "// Parent container",
+      "silent": true
+    },
+    {
+      "selectors": [
+        {
+          "elements": [
+            {
+              "combinator": {
+                "value": " "
+              },
+              "value": ".accordion",
+              "index": 103
+            }
+          ],
+          "extendList": []
+        }
+      ],
+      "rules": [
+        {
+          "name": "margin-bottom",
+          "value": {
+            "value": [
+              {
+                "value": [
+                  {
+                    "name": "@line-height-computed",
+                    "index": 122,
+                    "currentFileInfo": {
+                      "filename": "input",
+                      "rootpath": "",
+                      "currentDirectory": "",
+                      "entryPath": "",
+                      "rootFilename": "input"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "important": "",
+          "index": 107,
+          "currentFileInfo": {
+            "filename": "input",
+            "rootpath": "",
+            "currentDirectory": "",
+            "entryPath": "",
+            "rootFilename": "input"
+          },
+          "inline": false,
+          "variable": false
+        }
+      ],
+      "_lookups": {}
+    },
+    {
+      "value": "// Group == heading + body",
+      "silent": true
+    },
+    {
+      "selectors": [
+        {
+          "elements": [
+            {
+              "combinator": {
+                "value": " "
+              },
+              "value": ".accordion-group",
+              "index": 192
+            }
+          ],
+          "extendList": []
+        }
+      ],
+      "rules": [
+        {
+          "value": "//test",
+          "silent": true
+        },
+        {
+          "name": "margin-bottom",
+          "value": {
+            "value": [
+              {
+                "value": "2px"
+              }
+            ]
+          },
+          "important": "",
+          "index": 205,
+          "currentFileInfo": {
+            "filename": "input",
+            "rootpath": "",
+            "currentDirectory": "",
+            "entryPath": "",
+            "rootFilename": "input"
+          },
+          "inline": false,
+          "variable": false
+        },
+        {
+          "name": "border",
+          "value": {
+            "value": [
+              {
+                "value": "1px solid #e5e5e5"
+              }
+            ]
+          },
+          "important": "",
+          "index": 227,
+          "currentFileInfo": {
+            "filename": "input",
+            "rootpath": "",
+            "currentDirectory": "",
+            "entryPath": "",
+            "rootFilename": "input"
+          },
+          "inline": false,
+          "variable": false
+        },
+        {
+          "name": "border-radius",
+          "value": {
+            "value": [
+              {
+                "value": [
+                  {
+                    "name": "@border-radius-base",
+                    "index": 271,
+                    "currentFileInfo": {
+                      "filename": "input",
+                      "rootpath": "",
+                      "currentDirectory": "",
+                      "entryPath": "",
+                      "rootFilename": "input"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "important": "",
+          "index": 256,
+          "currentFileInfo": {
+            "filename": "input",
+            "rootpath": "",
+            "currentDirectory": "",
+            "entryPath": "",
+            "rootFilename": "input"
+          },
+          "inline": false,
+          "variable": false
+        }
+      ],
+      "_lookups": {}
+    },
+    {
+      "selectors": [
+        {
+          "elements": [
+            {
+              "combinator": {
+                "value": " "
+              },
+              "value": ".accordion-heading",
+              "index": 313
+            }
+          ],
+          "extendList": []
+        }
+      ],
+      "rules": [
+        {
+          "name": "border-bottom",
+          "value": {
+            "value": [
+              {
+                "value": "0"
+              }
+            ]
+          },
+          "important": "",
+          "index": 317,
+          "currentFileInfo": {
+            "filename": "input",
+            "rootpath": "",
+            "currentDirectory": "",
+            "entryPath": "",
+            "rootFilename": "input"
+          },
+          "inline": false,
+          "variable": false
+        }
+      ],
+      "_lookups": {}
+    },
+    {
+      "selectors": [
+        {
+          "elements": [
+            {
+              "combinator": {
+                "value": " "
+              },
+              "value": ".accordion-heading",
+              "index": 356
+            },
+            {
+              "combinator": {
+                "value": " "
+              },
+              "value": ".accordion-toggle",
+              "index": 374
+            }
+          ],
+          "extendList": []
+        }
+      ],
+      "rules": [
+        {
+          "name": "display",
+          "value": {
+            "value": [
+              {
+                "value": "block"
+              }
+            ]
+          },
+          "important": "",
+          "index": 378,
+          "currentFileInfo": {
+            "filename": "input",
+            "rootpath": "",
+            "currentDirectory": "",
+            "entryPath": "",
+            "rootFilename": "input"
+          },
+          "inline": false,
+          "variable": false
+        },
+        {
+          "name": "padding",
+          "value": {
+            "value": [
+              {
+                "value": "8px 15px"
+              }
+            ]
+          },
+          "important": "",
+          "index": 396,
+          "currentFileInfo": {
+            "filename": "input",
+            "rootpath": "",
+            "currentDirectory": "",
+            "entryPath": "",
+            "rootFilename": "input"
+          },
+          "inline": false,
+          "variable": false
+        }
+      ],
+      "_lookups": {}
+    },
+    {
+      "value": "// General toggle styles",
+      "silent": true
+    },
+    {
+      "selectors": [
+        {
+          "elements": [
+            {
+              "combinator": {
+                "value": " "
+              },
+              "value": ".accordion-toggle",
+              "index": 461
+            }
+          ],
+          "extendList": []
+        }
+      ],
+      "rules": [
+        {
+          "name": "cursor",
+          "value": {
+            "value": [
+              {
+                "value": "pointer"
+              }
+            ]
+          },
+          "important": "",
+          "index": 465,
+          "currentFileInfo": {
+            "filename": "input",
+            "rootpath": "",
+            "currentDirectory": "",
+            "entryPath": "",
+            "rootFilename": "input"
+          },
+          "inline": false,
+          "variable": false
+        }
+      ],
+      "_lookups": {}
+    },
+    {
+      "value": "// Inner needs the styles because you can't animate properly with any styles on the element",
+      "silent": true
+    },
+    {
+      "selectors": [
+        {
+          "elements": [
+            {
+              "combinator": {
+                "value": " "
+              },
+              "value": ".accordion-inner",
+              "index": 594
+            }
+          ],
+          "extendList": []
+        }
+      ],
+      "rules": [
+        {
+          "name": "padding",
+          "value": {
+            "value": [
+              {
+                "value": "9px 15px"
+              }
+            ]
+          },
+          "important": "",
+          "index": 598,
+          "currentFileInfo": {
+            "filename": "input",
+            "rootpath": "",
+            "currentDirectory": "",
+            "entryPath": "",
+            "rootFilename": "input"
+          },
+          "inline": false,
+          "variable": false
+        },
+        {
+          "name": "border-top",
+          "value": {
+            "value": [
+              {
+                "value": "1px solid #e5e5e5"
+              }
+            ]
+          },
+          "important": "",
+          "index": 619,
+          "currentFileInfo": {
+            "filename": "input",
+            "rootpath": "",
+            "currentDirectory": "",
+            "entryPath": "",
+            "rootFilename": "input"
+          },
+          "inline": false,
+          "variable": false
+        }
+      ],
+      "_lookups": {}
+    }
+  ],
+  "_lookups": {},
+  "root": true,
+  "firstRoot": true
+}
