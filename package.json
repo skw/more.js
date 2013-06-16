@@ -1,0 +1,23 @@
+{
+  "name": "more.js",
+  "version" : "0.0.1",
+  "description" : "LESS to Styl and Stylus.",
+  "author" : "Shaun Kirk Wong <shaun.kirk.wong@gmail.com> (http://github.com/skw)",
+  "keywords" : ["less","stylus","styl","css","framework","stylesheets"],
+  "repository" : {
+    "type" : "git",
+    "url": "https://github.com/skw/more.js.git"
+  },
+  "main" : "./index.js",
+  "dependencies" : {
+    "less" : "x",
+    "lodash" : "x"
+  }, 
+  "devDependencies" : {
+    "mocha" : "*"
+  }, 
+  "engines" : {
+    "node" : "~0.10.x",
+    "npm" : "1.2.x"
+  }
+}

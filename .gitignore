@@ -1,0 +1,12 @@
+# hidden files
+.DS_Store
+*.pid
+*.gz
+*.log
+
+# npm modules
+node_modules
+
+# transpiled assets
+less
+css
