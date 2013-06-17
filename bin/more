@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+/*
+ #  module dependencies
+ */
+
+var program = require('commander');
+var pkg = require('../package.json');
+var stdin = require('stdin');
+var Style = require('..');
+
+// options
+
+program
+  .version(pkg.version)
+  .option('--styl', 'exports to styl (default)')
+  .option('--stylus, 'exports to stylus')
+  .option('-m, --merge', 'merge @includes')
+  .parse(process.argv);
+
+
+// stdin
+
+stdin(function(str){
+  var options = {};
+  options.whitespace = program.whitespace;
+  options.merge = program.merge;
+
+});
