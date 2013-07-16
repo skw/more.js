@@ -44,6 +44,15 @@ for(var i = 0; i < program.args.length; i++) {
   // check if arg exists
   fs.exists(arg, function (exists) {
     if (exists) {
+      fs.stat(arg, function ( ring ) {
+        if ( ring.isDirectory() ){
+        
+        } else if ( ring.isFile() ) {
+        
+        } else {
+          console.warn( '"%s" type is not accepted', arg);
+        }
+      });
       console.log( 'YES');
     } else {
       console.warn( '"%s" does not exists', arg);
