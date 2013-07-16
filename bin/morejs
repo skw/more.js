@@ -1,28 +1,52 @@
 #!/usr/bin/env node
 
 /*
+ #  ##############################
+ #
+ #    more.js CLI
+ #
+ #  ##############################
+ */
+
+
+/*
  #  module dependencies
  */
 
 var program = require('commander');
 var pkg = require('../package.json');
-var stdin = require('stdin');
-var Style = require('..');
+var fs = require('fs');
 
-// options
+//var more = require('../lib/more.js');
+
+/*
+ #  options
+ */
 
 program
   .version(pkg.version)
+  .option('-f, --format', 'set format, defaults to styl')
   .option('--styl', 'exports to styl (default)')
-  .option('--stylus, 'exports to stylus')
+  .option('--stylus', 'exports to stylus')
   .option('-m, --merge', 'merge @includes')
   .parse(process.argv);
 
-// stdin
+var options = {};
+options.whitespace = program.whitespace;
+options.merge = program.merge;
 
-stdin(function(str){
-  var options = {};
-  options.whitespace = program.whitespace;
-  options.merge = program.merge;
+console.log(program.args);
 
-});
+// iterate over args
+for(var i = 0; i < program.args.length; i++) {
+  console.log('checking for ' + program.args[i]);
+  var arg = program.args[i]
+  // check if arg exists
+  fs.exists(arg, function (exists) {
+    if (exists) {
+      console.log( 'YES');
+    } else {
+      console.warn( '"%s" does not exists', arg);
+    }
+  });
+}
