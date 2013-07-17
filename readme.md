@@ -29,6 +29,10 @@ LESS to:
 - sass/scss definitions 
 - bi-directional conversion using sass/stylus parsers 
 
+## Usage 
+
+  more {options} file.less || /folder
+
 ## Author(s)
 
 - skw ( [github](//github.com/skw), [twitter](//twitter.com/skw) )

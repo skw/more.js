@@ -12,8 +12,7 @@
   "dependencies" : {
     "less" : "x",
     "lodash" : "x",
-    "commander" : "x",
-    "stdin" : "x"
+    "commander" : "x"
   }, 
   "devDependencies" : {
     "mocha" : "*"
@@ -23,6 +22,6 @@
     "npm" : "1.2.x"
   },
   "bin" : {
-    "more" : "bin/more"
+    "more" : "bin/morejs"
   }
 }
