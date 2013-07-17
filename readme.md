@@ -1,15 +1,15 @@
 # more.js (WiP)
 
-more.js is a conversion tool for LESS to other CSS languages, such as Styl, Stylus et al. 
+more.js is a conversion tool for [less](http://lesscss.org) to other CSS languages, such as [Styl](https://github.com/visionmedia/styl), [Stylus](https://github.com/LearnBoost/stylus) et al. 
 
-It does not parse LESS directly but utilizes the LESS css parser to extract a JS object and build a css object.
+It does not parse LESS directly but utilizes the [less](http://lesscss.org) css parser to extract a JS object and build a css object.
 
 ## Features
 
-LESS to: 
+[less](http://lesscss.org) to: 
 
-- Styl
-- Stylus
+- [Styl](https://github.com/visionmedia/styl)
+- [Stylus](https://github.com/LearnBoost/stylus)
 
 ## Complete:
 
@@ -29,9 +29,9 @@ LESS to:
 - sass/scss definitions 
 - bi-directional conversion using sass/stylus parsers 
 
-## Usage 
+## more(1) usage 
 
-  more {options} file.less || /folder
+  Usage: more [options] ( file.less || /dir )
 
 ## Author(s)
 
