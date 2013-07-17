@@ -13,11 +13,10 @@
  #  module dependencies
  */
 
-var program = require('commander');
-var pkg = require('../package.json');
-var fs = require('fs');
-
-//var more = require('../lib/more.js');
+var program = require('commander'),
+  pkg = require('../package.json'),
+  fs = require('fs'),
+  more = require('../index.js');
 
 /*
  #  options
@@ -37,6 +36,9 @@ options.merge = program.merge;
 
 console.log(program.args);
 
+
+
+
 // iterate over args
 for(var i = 0; i < program.args.length; i++) {
   console.log('checking for ' + program.args[i]);
@@ -48,7 +50,23 @@ for(var i = 0; i < program.args.length; i++) {
         if ( ring.isDirectory() ){
         
         } else if ( ring.isFile() ) {
-        
+          fs.readFile(arg, function (err, data) {
+            if (err) throw err;
+            more( data, function( err, res) {
+              if( err ) {
+                return false;
+              }
+              fs.writeFile( "./obj.json", JSON.stringify( res, null, 2 ), function( err ) {
+                  if( err ) {
+                      console.log( err );
+                  } else {
+                      console.log( "The file was saved!" );
+                  }
+              }); 
+              console.log( res );
+            });
+          });
+  
         } else {
           console.warn( '"%s" type is not accepted', arg);
         }
