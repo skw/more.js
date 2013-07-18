@@ -37,7 +37,23 @@ options.merge = program.merge;
 console.log(program.args);
 
 
-
+function process(arg){
+  fs.readFile(arg, function (err, data) {
+    if (err) throw err;
+      more( data, function( err, res) {
+      if( err ) {
+       return false;
+      }
+      fs.writeFile( "./obj.json", JSON.stringify( res, null, 2 ), function( err ) {
+         if( err ) {
+             console.log( err );
+         } else {
+             console.log( "The file was saved!" );
+         }
+      }); 
+    });
+  });  
+}
 
 // iterate over args
 for(var i = 0; i < program.args.length; i++) {
@@ -46,26 +62,11 @@ for(var i = 0; i < program.args.length; i++) {
   // check if arg exists
   fs.exists(arg, function (exists) {
     if (exists) {
-      fs.stat( arg, function ( ring ) {
+      fs.stat( arg, function ( err, ring ) {
         if ( ring.isDirectory() ){
          
         } else if ( ring.isFile() ) {
-          fs.readFile(arg, function (err, data) {
-            if (err) throw err;
-            more( data, function( err, res) {
-              if( err ) {
-                return false;
-              }
-              fs.writeFile( "./obj.json", JSON.stringify( res, null, 2 ), function( err ) {
-                  if( err ) {
-                      console.log( err );
-                  } else {
-                      console.log( "The file was saved!" );
-                  }
-              }); 
-              console.log( res );
-            });
-          });
+          process( arg );
   
         } else {
           console.warn( '"%s" type is not accepted', arg);
