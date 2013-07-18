@@ -8,6 +8,7 @@
  #  ##############################
  */
 
+"use strict";
 
 /*
  #  module dependencies
@@ -37,36 +38,40 @@ options.merge = program.merge;
 console.log(program.args);
 
 
-function process(arg){
+var processz  = function(arg, callback){
   fs.readFile(arg, function (err, data) {
-    if (err) throw err;
-      more( data, function( err, res) {
+    if ( err ) { 
+      throw err;
+    }
+    more( data, function( err, res) {
       if( err ) {
-       return false;
+        callback( err );
       }
-      fs.writeFile( "./obj.json", JSON.stringify( res, null, 2 ), function( err ) {
+      fs.writeFile( "./output.styl", res, function( err ) {
          if( err ) {
-             console.log( err );
+             callback( err );
          } else {
-             console.log( "The file was saved!" );
+             callback( "The file was saved!" ); 
          }
-      }); 
+      });
     });
   });  
-}
+};
 
 // iterate over args
 for(var i = 0; i < program.args.length; i++) {
   console.log('checking for ' + program.args[i]);
-  var arg = program.args[i]
+  var arg = program.args[i];
   // check if arg exists
   fs.exists(arg, function (exists) {
     if (exists) {
       fs.stat( arg, function ( err, ring ) {
         if ( ring.isDirectory() ){
-         
+          //
         } else if ( ring.isFile() ) {
-          process( arg );
+          processz( arg, function( err, res ) {
+            
+          });
   
         } else {
           console.warn( '"%s" type is not accepted', arg);
