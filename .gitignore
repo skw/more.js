@@ -10,3 +10,5 @@ node_modules
 # transpiled assets
 less
 css
+tests
+bin/output.styl

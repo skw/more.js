@@ -36,14 +36,12 @@ var options = {};
 options.whitespace = program.whitespace;
 options.merge = program.merge;
 
-console.log(program.args);
-
-
 var handle  = function(arg, callback) {
   // check if arg exists
   fs.exists(arg, function (exists) {
     if (exists) {
       fs.stat( arg, function ( err, ring ) {
+
         // dir
         if ( ring.isDirectory() ){
           fs.readdirSync( arg ).map( function( child ) {
@@ -54,12 +52,14 @@ var handle  = function(arg, callback) {
               console.log( res );
             });
           });
+
         // file
         } else if ( ring.isFile() ) {
           fs.readFile(arg, 'utf8', function (err, data) {
             if ( err ) { 
               throw err;
             }
+            
             // use more to convert file
             more( data, function( err, res) {
               if( err ) {
@@ -72,10 +72,8 @@ var handle  = function(arg, callback) {
                      callback( "The file was saved!" ); 
                  }
               });
-            });
-            
+            });            
           });  
-
   
         } else {
           console.warn( '"%s" type is not accepted', arg);
@@ -88,7 +86,7 @@ var handle  = function(arg, callback) {
   });
 };
 
-// iterate over args
+// iterate over args and call file handler
 _.each( program.args, function( arg ) {
   console.log('checking for ' + arg);
   handle( arg, function( err, res ) {
