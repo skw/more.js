@@ -38,8 +38,8 @@ options.merge = program.merge;
 console.log(program.args);
 
 
-var processz  = function(arg, callback){
-  fs.readFile(arg, function (err, data) {
+var handle  = function(arg, callback) {
+  fs.readFile(arg, 'utf8', function (err, data) {
     if ( err ) { 
       throw err;
     }
@@ -59,18 +59,25 @@ var processz  = function(arg, callback){
 };
 
 // iterate over args
-for(var i = 0; i < program.args.length; i++) {
-  console.log('checking for ' + program.args[i]);
-  var arg = program.args[i];
+//for(var i = 0; i < program.args.length; i++) {
+  console.log('checking for ' + program.args[0]);
+  var arg = program.args[0];
   // check if arg exists
   fs.exists(arg, function (exists) {
     if (exists) {
       fs.stat( arg, function ( err, ring ) {
+        // dir
         if ( ring.isDirectory() ){
-          //
-        } else if ( ring.isFile() ) {
-          processz( arg, function( err, res ) {
+          fs.readdirSync( arg ).map( function( child ) {
             
+          });
+        // file
+        } else if ( ring.isFile() ) {
+          handle( arg, function( err, res ) {
+            if( err ) {
+              return console.warn( err );
+            }
+            console.log( res );
           });
   
         } else {
@@ -82,4 +89,4 @@ for(var i = 0; i < program.args.length; i++) {
       console.warn( '"%s" does not exists', arg);
     }
   });
-}
+//}
