@@ -14,8 +14,9 @@
  #  module dependencies
  */
 
-var program = require('commander'),
-  pkg = require('../package.json'),
+var pkg = require('../package.json'),
+  _ = require('lodash'),
+  program = require('commander'),
   fs = require('fs'),
   more = require('../index.js');
 
@@ -39,29 +40,6 @@ console.log(program.args);
 
 
 var handle  = function(arg, callback) {
-  fs.readFile(arg, 'utf8', function (err, data) {
-    if ( err ) { 
-      throw err;
-    }
-    more( data, function( err, res) {
-      if( err ) {
-        callback( err );
-      }
-      fs.writeFile( "./output.styl", res, function( err ) {
-         if( err ) {
-             callback( err );
-         } else {
-             callback( "The file was saved!" ); 
-         }
-      });
-    });
-  });  
-};
-
-// iterate over args
-//for(var i = 0; i < program.args.length; i++) {
-  console.log('checking for ' + program.args[0]);
-  var arg = program.args[0];
   // check if arg exists
   fs.exists(arg, function (exists) {
     if (exists) {
@@ -69,16 +47,35 @@ var handle  = function(arg, callback) {
         // dir
         if ( ring.isDirectory() ){
           fs.readdirSync( arg ).map( function( child ) {
-            
+            handle( child, function( err, res ) {
+              if( err ) {
+                return console.warn( err );
+              }
+              console.log( res );
+            });
           });
         // file
         } else if ( ring.isFile() ) {
-          handle( arg, function( err, res ) {
-            if( err ) {
-              return console.warn( err );
+          fs.readFile(arg, 'utf8', function (err, data) {
+            if ( err ) { 
+              throw err;
             }
-            console.log( res );
-          });
+            // use more to convert file
+            more( data, function( err, res) {
+              if( err ) {
+                callback( err );
+              }
+              fs.writeFile( "./output.styl", res, function( err ) {
+                 if( err ) {
+                     callback( err );
+                 } else {
+                     callback( "The file was saved!" ); 
+                 }
+              });
+            });
+            
+          });  
+
   
         } else {
           console.warn( '"%s" type is not accepted', arg);
@@ -89,4 +86,15 @@ var handle  = function(arg, callback) {
       console.warn( '"%s" does not exists', arg);
     }
   });
-//}
+};
+
+// iterate over args
+_.each( program.args, function( arg ) {
+  console.log('checking for ' + arg);
+  handle( arg, function( err, res ) {
+    if( err ) {
+      return console.warn( err );
+    }
+    console.log( res );
+  });
+});
