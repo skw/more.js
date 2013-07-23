@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /*
  #  ##############################
  #
@@ -14,32 +12,13 @@
  #  module dependencies
  */
 
-var pkg = require('../package.json'),
-  _ = require('lodash'),
-  program = require('commander'),
-  fs = require('fs'),
-  more = require('../index.js');
-
-/*
- #  options
- */
-
-program
-  .version(pkg.version)
-  .option('-f, --format', 'set format, defaults to styl')
-  .option('--styl', 'exports to styl (default)')
-  .option('--stylus', 'exports to stylus')
-  .option('-m, --merge', 'merge @includes')
-  .parse(process.argv);
-
-var options = {};
-options.whitespace = program.whitespace;
-options.merge = program.merge;
+var fs = require( 'fs' ),
+  more = require( '../index.js' );
 
 var handle  = function(arg, callback) {
   // check if arg exists
-  fs.exists(arg, function (exists) {
-    if (exists) {
+  fs.exists( arg, function ( exists ) {
+    if ( exists ) {
       fs.stat( arg, function ( err, ring ) {
 
         // dir
@@ -55,11 +34,11 @@ var handle  = function(arg, callback) {
 
         // file
         } else if ( ring.isFile() ) {
-          fs.readFile(arg, 'utf8', function (err, data) {
+          fs.readFile(arg, 'utf8', function ( err, data ) {
             if ( err ) { 
               throw err;
             }
-            
+
             // use more to convert file
             more( data, function( err, res) {
               if( err ) {
@@ -74,25 +53,16 @@ var handle  = function(arg, callback) {
               });
             });            
           });  
-  
+
         } else {
-          console.warn( '"%s" type is not accepted', arg);
+          console.warn( '"%s" type is not accepted', arg );
         }
       });
       console.log( 'YES');
     } else {
-      console.warn( '"%s" does not exists', arg);
+      console.warn( '"%s" does not exists', arg );
     }
   });
 };
 
-// iterate over args and call file handler
-_.each( program.args, function( arg ) {
-  console.log('checking for ' + arg);
-  handle( arg, function( err, res ) {
-    if( err ) {
-      return console.warn( err );
-    }
-    console.log( res );
-  });
-});
+module.exports = handle;
